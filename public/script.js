@@ -1,8 +1,6 @@
-// script.js
-
-// Function to handle login form submission
+//Handle Login Form
 function login() {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault();
   const username = document.getElementById("loginUsername").value;
   const password = document.getElementById("loginPassword").value;
 
@@ -22,16 +20,16 @@ function login() {
     .then((data) => {
       localStorage.setItem("token", data.token);
       alert("Login successful!");
-      window.location.href = "search.html"; // Redirect to search page after login
+      window.location.href = "search.html";
     })
     .catch((error) => {
       document.getElementById("loginError").innerText = error.message;
     });
 }
 
-// Function to handle signup form submission
+//Handle Signup Form
 function signup() {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault();
   const username = document.getElementById("signupUsername").value;
   const email = document.getElementById("signupEmail").value;
   const mobile = document.getElementById("signupMobile").value;
@@ -52,23 +50,23 @@ function signup() {
     })
     .then((data) => {
       alert("Registration successful! Please login.");
-      window.location.href = "index.html"; // Redirect to login page after registration
+      window.location.href = "index.html";
     })
     .catch((error) => {
       alert(error.message);
     });
 }
 
-// Function to search breweries based on user input
+// Handle Search
 function searchBreweries() {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault();
   const searchType = document.getElementById("searchType").value;
   const searchQuery = document.getElementById("searchQuery").value;
 
   fetch(`/search?type=${searchType}&query=${searchQuery}`)
     .then((response) => response.json())
     .then((data) => {
-      displayBreweries(data); // Function to display breweries in HTML
+      displayBreweries(data);
     })
     .catch((error) => {
       console.error("Error fetching breweries:", error);
@@ -76,7 +74,7 @@ function searchBreweries() {
     });
 }
 
-// Function to display breweries in HTML
+//Handle Breweries display
 function displayBreweries(breweries) {
   const breweryList = document.getElementById("breweryList");
   breweryList.innerHTML = "";
@@ -95,12 +93,11 @@ function displayBreweries(breweries) {
   });
 }
 
-// Function to view details of a specific brewery
+//Handle brewery details
 function viewBreweryDetails(id) {
   window.location.href = `brewery.html?id=${id}`;
 }
 
-// Function to display brewery details
 function displayBreweryDetails(brewery) {
   const breweryDetails = document.getElementById("breweryDetails");
   breweryDetails.innerHTML = `
@@ -111,7 +108,6 @@ function displayBreweryDetails(brewery) {
   `;
 }
 
-// Function to fetch and display brewery details on brewery.html
 function fetchBreweryDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const breweryId = urlParams.get("id");
@@ -119,8 +115,8 @@ function fetchBreweryDetails() {
   fetch(`/brewery/${breweryId}`)
     .then((response) => response.json())
     .then((data) => {
-      displayBreweryDetails(data); // Function to display brewery details in HTML
-      fetchReviews(breweryId); // Function to fetch and display reviews for the brewery
+      displayBreweryDetails(data);
+      fetchReviews(breweryId);
     })
     .catch((error) => {
       console.error("Error fetching brewery details:", error);
@@ -128,7 +124,7 @@ function fetchBreweryDetails() {
     });
 }
 
-// Function to fetch and display reviews for a brewery
+//Hanlde reviews
 function fetchReviews(breweryId) {
   fetch(`/brewery/${breweryId}`)
     .then((response) => response.json())
@@ -157,12 +153,11 @@ function fetchReviews(breweryId) {
     });
 }
 
-// Function to add a review for a brewery
 function addReview() {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault();
   const stars = document.getElementById("stars").value;
   const description = document.getElementById("description").value;
-  const token = localStorage.getItem("token"); // Retrieve token from localStorage
+  const token = localStorage.getItem("token");
 
   const urlParams = new URLSearchParams(window.location.search);
   const breweryId = urlParams.get("id");
@@ -171,14 +166,14 @@ function addReview() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`, // Send token in Authorization header
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ stars, description }),
   })
     .then((response) => {
       if (response.ok) {
         alert("Review added successfully!");
-        fetchReviews(breweryId); // Refresh reviews after adding new review
+        fetchReviews(breweryId);
       } else {
         throw new Error("Failed to add review.");
       }
@@ -189,7 +184,6 @@ function addReview() {
     });
 }
 
-// Fetch brewery details on page load for brewery.html
 if (window.location.pathname.includes("brewery.html")) {
   document.addEventListener("DOMContentLoaded", fetchBreweryDetails);
 }
