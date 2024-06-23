@@ -1,4 +1,4 @@
-//Handle Login Form
+//Handle Login
 function login() {
   event.preventDefault();
   const username = document.getElementById("loginUsername").value;
@@ -27,7 +27,7 @@ function login() {
     });
 }
 
-//Handle Signup Form
+// handle signup
 function signup() {
   event.preventDefault();
   const username = document.getElementById("signupUsername").value;
@@ -57,7 +57,7 @@ function signup() {
     });
 }
 
-// Handle Search
+//Search breweries
 function searchBreweries() {
   event.preventDefault();
   const searchType = document.getElementById("searchType").value;
@@ -74,7 +74,7 @@ function searchBreweries() {
     });
 }
 
-//Handle Breweries display
+// Display breweries
 function displayBreweries(breweries) {
   const breweryList = document.getElementById("breweryList");
   breweryList.innerHTML = "";
@@ -93,7 +93,6 @@ function displayBreweries(breweries) {
   });
 }
 
-//Handle brewery details
 function viewBreweryDetails(id) {
   window.location.href = `brewery.html?id=${id}`;
 }
@@ -124,7 +123,6 @@ function fetchBreweryDetails() {
     });
 }
 
-//Hanlde reviews
 function fetchReviews(breweryId) {
   fetch(`/brewery/${breweryId}`)
     .then((response) => response.json())
@@ -158,7 +156,6 @@ function addReview() {
   const stars = document.getElementById("stars").value;
   const description = document.getElementById("description").value;
   const token = localStorage.getItem("token");
-
   const urlParams = new URLSearchParams(window.location.search);
   const breweryId = urlParams.get("id");
 
