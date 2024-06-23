@@ -1,0 +1,30 @@
+<!-- search.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Review System - Search Breweries</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Search Breweries</h1>
+        <form id="searchForm">
+            <select id="searchType">
+                <option value="by_city">By City</option>
+                <option value="by_name">By Name</option>
+                <option value="by_type">By Type</option>
+            </select>
+            <input type="text" id="searchQuery" placeholder="Enter search query" required>
+            <button type="submit" onclick="searchBreweries()">Search</button>
+        </form>
+        <div id="breweryList"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

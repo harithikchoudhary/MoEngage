@@ -1,7 +1,7 @@
 {
   "name": "breweryreviewsystem",
   "version": "1.0.0",
-  "description": "Web Application for Brewery Review System",
+  "description": "Web Application for Brewery-Review-System",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

@@ -36,19 +36,18 @@ mongoose
 
 const userSchema = new mongoose.Schema({
   id: String,
-  username: String,
-  email: String,
-  mobile: String,
+  username: { type: String, unique: true },
+  email: { type: String, unique: true },
+  mobile: { type: String, unique: true },
   password: String,
 });
 
 const ratingSchema = new mongoose.Schema({
-  id: String,
   breweryId: String,
   rating: [
     {
       userId: String,
-      stars: Number,
+      stars: { type: Number, min: 1, max: 5 },
       description: String,
     },
   ],
