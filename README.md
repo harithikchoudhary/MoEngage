@@ -67,3 +67,13 @@ To run this project locally, follow these steps:
    npm start
    
 7. Open your browser and navigate to http://localhost:4000 to access the application.
+
+
+![Screenshot 2024-06-24 053717](https://github.com/harithikchoudhary/MoEngage/assets/125364799/cbd19347-f7a2-4c43-b865-8f0159a7afd1)
+
+![Screenshot 2024-06-24 053729](https://github.com/harithikchoudhary/MoEngage/assets/125364799/7688651c-e228-4f02-86b3-b24a555256be)
+
+![Screenshot 2024-06-24 053756](https://github.com/harithikchoudhary/MoEngage/assets/125364799/0bc33f80-5208-4f2d-ac44-f4578ab0fba6)
+![Screenshot 2024-06-24 053819](https://github.com/harithikchoudhary/MoEngage/assets/125364799/7fba32e8-eda3-434f-9542-dd048944d296)
+
+![Screenshot 2024-06-24 053909](https://github.com/harithikchoudhary/MoEngage/assets/125364799/66748254-335f-4b58-8836-cd9b7e1b115c)
