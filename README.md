@@ -66,6 +66,4 @@ To run this project locally, follow these steps:
 
    npm start
    
-
 7. Open your browser and navigate to http://localhost:4000 to access the application.
-t.
