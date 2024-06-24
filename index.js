@@ -21,8 +21,6 @@ app.use(express.static(__dirname + "/public"));
 
 mongoose
   .connect(config.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     ssl: true,
     tlsAllowInvalidCertificates: true,
   })
